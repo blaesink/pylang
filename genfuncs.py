@@ -1,6 +1,7 @@
 import pandas as pd
 import random
 from itertools import product
+import re
 
 vowels = pd.read_csv("vowels.csv")
 vowels=vowels.drop([15,17]) # drops the mid front o and mid back o
@@ -17,7 +18,7 @@ def generate_consonant_inventory(num: int):
     global consonants
     return consonants['symbol'].sample(n = num).tolist()
 
-def generate_syllable_from_pattern(pat:str, vowels=[], consonants=[], duplicates=True) -> list:
+def generate_syllable_from_pattern(pat:str, vowels=[], consonants=[], duplicates=True,num_samples_returned='all') -> list:
     """Pass a string like 'CVCV' to generate syllables in that format
 
     [a,e,i,o,u] * [b,d,g,t,k] -> 25 combinations of VC pairings
@@ -40,4 +41,20 @@ def generate_syllable_from_pattern(pat:str, vowels=[], consonants=[], duplicates
     patterns = list(product(*pattern_matrix))
     str_pats = [''.join(x) for x in patterns]
 
-    return str_pats
+    if duplicates == False:
+        # this could be a one liner with the first list comp somehow
+        str_pats = [re.sub(r'[^\w\s]|(.)(?=\1)', '', x) for x in str_pats]
+        # problem with certain digraphs since they're two characters..
+        #str_pats = [x for x in str_pats if len(x) == len(pat)]
+
+    if num_samples_returned == 'all':
+        return str_pats
+    elif type(num_samples_returned) == int:
+        return random.sample(str_pats,num_samples_returned)
+
+def make_words(*word_parts):
+    matrix = [p for p in word_parts]
+
+    word_mat = list(product(*matrix))
+
+    return [''.join(x) for x in word_mat]

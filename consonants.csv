@@ -21,3 +21,29 @@ q,uvular,plosive,0
 ɢ,uvular,plosive,0
 ʡ,pharyngeal,plosive,0
 ʔ,glottal,plosive,0
+ts,alveolar,sibilant affricate,0
+dz,alveolar,sibilant affricate,1
+t̠ʃ,post alveolar,sibilant affricate, 0
+d̠ʒ,post alveolar,sibilant affricate, 1
+ʈʂ,retroflex,sibilant affricate,0
+ɖʐ,retroflex,sibilant affricate,1
+tɕ,palatal,sibilant affricate,0
+dʑ,palatal,sibilant affricate,1
+pɸ,bilabial, non-sibilant affricate,0
+bβ,bilabial, non-sibilant affricate,1
+p̪f,labiodental,non-sibilant affricate,0
+b̪v,labiodental,non-sibilant affricate,1
+t̪θ,dental,non-sibilant affricate,0
+d̪ð,dental,non-sibilant affricate,1
+tɹ̝̊,alveolar,non-sibilant affricate,0
+dɹ̝,alveolar,non-sibilant affricate,1
+t̠ɹ̠̊˔,post-alveolar,non-sibilant affricate,0
+d̠ɹ̠˔,post-alveolar,non-sibilant affricate,1
+cç,palatal,non-sibilant affricate,0
+ɟʝ,palatal,non-sibilant affricate,1
+kx,velar,non-sibilant affricate,0
+ɡɣ,velar,non-sibilant affricate,1
+qχ,uvular,non-sibilant affricate,0
+ɢʁ,uvular,non-sibilant affricate,1
+ʡʢ,pharyngeal,non-sibilant affricate,0
+ʔh,glottal,non-sibilant affricate,1
