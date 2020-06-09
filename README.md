@@ -35,6 +35,6 @@ As you can have any amount of prefixes,infixes and suffixes, do make sure to add
 
 # Next Steps
 - Add language families for the vowels and consonants to add to the `generate_*_inventory` functions to tailor the generators towards a certain 'feel'
-- `TODO` Redo the duplicate logic with tokenizing the phonemes due to multi-character consonants.
-- `TODO` add in logic that handles if `num_samples_returned` is equal to `'all` or greater than the total number of samples returned.
+- `In Progress` Redo the duplicate logic with tokenizing the phonemes due to multi-character consonants.
+	- Working on it via using new Phoneme/Morpheme/Word classes.
 - `TODO` have a dedupe logic for arguments passed to the `make_words` in the case of potential agglutinatives?
