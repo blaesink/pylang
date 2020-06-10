@@ -25,7 +25,6 @@ def generate_syllable_from_pattern(pat:str, vowels=[], consonants=[], duplicates
     """Pass a string like 'CVCV' to generate syllables in that format
 
     [a,e,i,o,u] * [b,d,g,t,k] -> 25 combinations of VC pairings
-
     [b,d,g,t,k] * [a,e,i,o,u] * [b,d,g,t,k] -> 125 combinations of VC pairings
     """
 
@@ -37,25 +36,25 @@ def generate_syllable_from_pattern(pat:str, vowels=[], consonants=[], duplicates
         if c.upper() == "V":
             pattern_matrix.append(vowels)
 
-    patterns = list(product(*pattern_matrix))
+    patterns = [Morpheme(x) for x in list(product(*pattern_matrix))]
 
-    '''
-    if duplicates == False: # FIXME
-        # this could be a one liner with the first list comp somehow
-        str_pats = [re.sub(r'[^\w\s]|(.)(?=\1)', '', x) for x in str_pats]
-        # problem with certain digraphs since they're two characters..
-        #str_pats = [x for x in str_pats if len(x) == len(pat)]
-    '''
+    if duplicates == False:
+        patterns = [Morpheme(list(dict.fromkeys(p.phonemes))) for p in patterns]
+        patterns = [x for x in patterns if len(x.phonemes) == len(pat)]
 
     if num_samples_returned == 'all':
         return patterns
     elif isinstance(num_samples_returned,int):
         if num_samples_returned > len(pattern_matrix):
             return random.sample(patterns,num_samples_returned)
+        else:
+            return random.sample(patterns,num_samples_returned)
 
-def make_words(*word_parts):
+def make_words(duplicates: bool = False, *word_parts):
     matrix = [p for p in word_parts]
+    word_mat = [Word(x) for x in list(product(*matrix))]
 
-    word_mat = list(product(*matrix))
+    if duplicates == False:
+        word_mat = [Word(list(dict.fromkeys(w.morphemes))) for w in word_mat]
 
     return word_mat

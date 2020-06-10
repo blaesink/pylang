@@ -31,10 +31,3 @@ If you'd like to have no repeating characters, setting `duplicates` to `False` w
 `make_words` takes in any number of arguments and creates a matrix of the supplied samples the same as `generate_syllable_from_pattern`.
 As you can have any amount of prefixes,infixes and suffixes, do make sure to add them _in order_ to avoid getting samples you don't expect!
 (This is useful if you're looking to emulate agglutinative languages like Hungarian.)
-
-
-# Next Steps
-- Add language families for the vowels and consonants to add to the `generate_*_inventory` functions to tailor the generators towards a certain 'feel'
-- `In Progress` Redo the duplicate logic with tokenizing the phonemes due to multi-character consonants.
-	- Working on it via using new Phoneme/Morpheme/Word classes.
-- `TODO` have a dedupe logic for arguments passed to the `make_words` in the case of potential agglutinatives?

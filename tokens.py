@@ -2,6 +2,9 @@ class Phoneme:
     def __init__(self,sym: str):
         self.symbol = sym
 
+    def __str__(self):
+        return f'{self.symbol}'
+
 class Morpheme:
     def __init__(self,phonemes):
         self.phonemes = phonemes
